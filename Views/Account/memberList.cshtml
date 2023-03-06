@@ -1,0 +1,41 @@
+﻿@model List<Product>
+
+
+<div class="table-responsive text-center">
+
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="table-primary">
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Number</td>
+                <td>Price</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in @Model)
+            {
+
+                <tr>
+                    <th>@item.Id</th>
+                    <td>@item.Name</td>
+                    <td>@item.Number</td>
+                    <td>@item.Price</td>
+
+
+                    <td>
+                        <a class="btn btn-primary btn-block btn-lg" asp-controller="Order" asp-action="Add" asp-route-Id="@item.Id">اضافه به سبد </a>
+                        @if(@item.PersonId==2)
+                        {
+                            <a class="btn btn-danger btn-block btn-lg" asp-controller="Order" asp-action="Delete" asp-route-Id="@item.Id">حذف از سبد </a>
+                        }
+                    </td>
+
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+</div>

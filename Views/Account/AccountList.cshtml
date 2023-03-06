@@ -1,0 +1,41 @@
+﻿@model List<Account>
+<br />
+<br />
+<br />
+<br />
+
+<a class="btn btn-warning btn-block btn-lg mt-3" asp-controller="Account" asp-action="Create" asp-route-Id="">اضافه کردن کاربر   </a>
+<div class="table-responsive text-center mt-2">
+
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="table-primary">
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>email</td>
+                <td>pass</td>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in @Model)
+            {
+
+                <tr>
+                    <th>@item.Id</th>
+                    <td>@item.Name</td>
+                    <td>@item.Email</td>
+                    <td>@item.Password</td>
+
+
+                  
+
+                </tr>
+
+            }
+        </tbody>
+    </table>
+    
+    <a class="btn btn-warning btn-block btn-lg" asp-controller="Account" asp-action="Login">ورود   </a>
+
+</div>

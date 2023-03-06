@@ -1,0 +1,46 @@
+﻿@model Product
+@{
+    ViewData["Title"] = " تغییرات دستی";
+}
+@{
+    
+    <br />
+    <br />
+<br />
+
+    <br />
+    <br />
+    <br />
+
+    <div class="mt-5">
+    <form method="post">
+            <label class="bg-warning mt-5 text-white border border-danger">*نام محصول*</label>
+                <div class="row text-center">
+                <input class="mt-2 w-25 p-3"  type="text" name="Name" required="required" />
+                </div>
+
+            <button class="mt-5 btn btn-danger" type="submit" asp-controller="Product" asp-action="Delete2" > حذف</button>
+    </form>
+
+
+    <form method="post">
+
+            <label class="bg-warning mt-5 text-white border border-danger">*نام محصول* </label>
+        <div class="row text-center">
+                <input class="mt-2 w-25 p-3"  type="text" name="Name" required="required" />
+        </div>
+
+            <label class="bg-warning mt-2 text-white border border-danger">*تعداد محصول *</label>
+        <div class="row text-center ">
+                <input class="mt-2 w-25 p-3" type="text" name="Number" required="required" />
+        </div>
+            <label class="bg-warning mt-2 text-white border border-danger"> *قیمت  محصول* </label>
+        <div class="row text-center ">
+                <input class="mt-2 w-25 p-3 " type="text" name="Price" required="required" />
+        </div>
+            <button class=" btn btn-primary mt-5" type="submit" asp-controller="Product" asp-action="Edite2" >ویرایش محصول  </button>
+    </form>
+    </div>
+
+
+}

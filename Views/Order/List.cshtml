@@ -1,0 +1,70 @@
+﻿@model List<Product>
+@{
+    ViewData["Title"] = "سبد خرید";
+}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<form method="post">
+    
+    <div class="table-responsive text-center mt-5">
+        <a class="btn btn-warning btn-block btn-lg border border-white" asp-controller="Product" asp-action="List">بازگشت به محصولات </a>
+        <table class="table table-bordered table-striped table-hover mt-2 bg-success">
+            <thead class="table-warning bg-primary">
+                <tr class="text-secondary bg-warning">
+                    <td>نام</td>
+                    <td>تعداد</td>
+                    <td>قیمت</td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in @Model)
+                {
+                    if ((item.PersonId != null) && (item.Number2 > 0))
+                    {
+                        <tr class="text-white">
+
+                            <td>@item.Name</td>
+                            <td>@item.Number2</td>
+                            <td>@item.Price</td>
+
+                            <td class="  text-center ">
+                                <div>
+                                    @if (item.Number >= 1)
+                                    {
+                                        <a class="btn btn-primary btn-block btn-lg  text-center border border-white" asp-controller="Order" asp-action="Add" asp-route-Id="@item.Id">+</a>
+                                    }
+                                    else
+                                    {
+                                        <div class="text-white">اتمام موجودی </div>
+                                    }
+                                    @if (item.Number2 >= 1)
+                                    {
+                                        <a class="btn btn-warning btn-block btn-lg text-white border border-white" asp-controller="Order" asp-action="Delete2" asp-route-Id="@item.Id">-</a>
+                                    }
+                                    <a class="btn btn-danger btn-block btn-lg  border border-white" asp-controller="Order" asp-action="Delete" asp-route-Id="@item.Id">*</a>
+                                </div>
+                            </td>
+
+
+                        </tr>
+                    }
+
+
+                }
+            </tbody>
+        </table>
+        <div class="bg-warning text-white"> 
+            جمع کل سبد خرید : 
+        <h3 class="text-success">
+               @ViewBag.TotalPrice
+        </h3>
+        </div>
+
+    </div>
+</form>
+

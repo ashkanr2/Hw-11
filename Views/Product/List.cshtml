@@ -1,0 +1,80 @@
+﻿@model List<Product> 
+@{
+    ViewData["Title"] = "لیست محصولات";
+}
+    <br />
+<br />
+<br />
+
+        <form method="post" class="mt-5">
+            <div class="row">
+        <div class="table-responsive text-center mt-5">
+                    <a class="btn btn-success  btn-block btn-lg border border-white" asp-controller="Product" asp-action="Create" asp-route-Id="">اضافه کردن محصول  </a>
+                </div>
+                
+                
+            </div>
+
+        </form> 
+<div class="table-responsive text-center mt-4">
+   
+    
+        <table class="table table-bordered table-striped table-hover bg-info">
+            <thead class="table-warning bg-danger">
+            <tr class="text-secondary">
+                    <td>#</td>
+                    <td>نام</td>
+                    <td>موجودی</td>
+                    <td>قیمت</td>
+                     <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in @Model)
+                {
+
+                    <tr>
+                    <th class="bg-danger text-white">@item.Id</th>
+                    <td class="text-white" >@item.Name</td>
+                    @if(item.Number > 5)
+                    {
+                        <td class="bg-info text-white">@item.Number</td>
+                    }else{
+                        <td class="bg-danger text-white">@item.Number</td>
+
+                    }
+                    
+                    <td class="text-white">@item.Price</td>
+                    <td>
+                        @if(item.Number!=0){
+                            <a class="btn btn-success btn-block btn-lg border border-white" asp-controller="Order" asp-action="Add" asp-route-Id="@item.Id">+ </a>
+                       }
+                    </td>
+                    <td>
+                        @if (item.Number2 > 0)
+                        {
+                            <a class="btn btn-danger btn-block btn-lg border border-white" asp-controller="Order" asp-action="Delete2" asp-route-Id="@item.Id">-</a>
+                        }
+                        </td>
+                    <td>
+                        <a class="btn btn-warning btn-block btn-lg  text-white border border-white" asp-controller="Product" asp-action="Edit" asp-route-Id="@item.Id">ویرایش</a>
+                    </td>
+
+                         
+                         <td>
+
+                        <a class="btn btn-danger btn-block btn-lg border border-white" asp-controller="Product" asp-action="Delete" asp-route-Id="@item.Id">حذف محصول</a>
+                         </td>
+
+
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+
+    </div>

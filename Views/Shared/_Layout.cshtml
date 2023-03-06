@@ -1,0 +1,77 @@
+﻿
+<!DOCTYPE html>
+<html lang="fa"dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - _10</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/_10.styles.css" asp-append-version="true" />
+</head>
+<header>
+    <body class="bg-secondary">
+        <header>
+            <nav class=" navbar navbar-expand-lg fixed-top navbar-light  border border-3 text-light bg-dark ">
+                <div class="container-fluid justify-content-center justify-content-md-between">
+                   
+                    <ul class="navbar-nav flex-row">
+
+                        <div class="d-flex">
+                            <ul class="d-flex">
+                                <li class="nav-item d-flex">
+                                    <a class="nav-link text-danger bg-warning border border-dark" asp-area="" asp-controller="Home" asp-action="Index">صفحه اصلی</a>
+                                </li>
+
+                                <li class="nav-item d-flex">
+                                    <a class="nav-link text-danger bg-warning border border-dark" asp-area="" asp-controller="Account" asp-action="Login">ورود</a>
+                                </li>
+                                <li class="nav-item d-flex">
+                                    <a class="nav-link text-danger bg-warning border border-dark" asp-area="" asp-controller="Account" asp-action="AccountList">لیست کاربران </a>
+                                </li>
+                                <li class="nav-item d-flex">
+                                    <a class="nav-link text-danger bg-warning border border-dark" asp-area="" asp-controller="Product" asp-action="List">لیست کالاها</a>
+                                </li>
+                                <li class="nav-item d-flex">
+                                    <a class="nav-link text-danger bg-warning border border-dark" asp-area="" asp-controller="Order" asp-action="List">مشاهده سبد خرید </a>
+                                </li>
+                                <li class="nav-item d-flex">
+                                    <a class="nav-link text-danger bg-warning border border-dark" asp-area="" asp-controller="Product" asp-action="Action"> تغییرات دستی </a>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        
+                    </ul>
+                    <!-- Avatar -->
+                    
+                        <div class="d-flex my-2 my-sm-0">
+
+                            <!-- Search form -->
+                        <form method="post">
+                            <div class="bt-5">
+                                <input type="text" name="search"class="bg-secondary" />
+                                <button type="submit" asp-controller="Product" asp-action="Search" class="bg-warning text-danger">جست و جو</button>
+                            </div>
+                            </form>
+                        </div>
+                </div>
+            </nav>
+           
+        </header>
+
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+        
+      
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)
+    </body>
+</header>
+</html>
+

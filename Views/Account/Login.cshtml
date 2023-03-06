@@ -1,0 +1,50 @@
+﻿@model Account
+<html lang="fa" dir="rtl">
+
+    <section >
+        <div class="container py-5 h-100 mt-3">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                        <div class="card-body p-5 text-center">
+
+                            <h3 class="mb-5">ورود مدیریت     </h3>
+
+                            <div class="form-outline mb-4">
+                                <label asp-for="Email">ایمیل : </label>
+                                <input type="text" asp-for="Email" placeholder="ایمیل" required="required" />
+                                <span asp-validation-for="Email"></span>
+                            </div>
+                            <label asp-for="Password" >رمزعبور :</label>
+                            <input type="text" asp-for="Password" placeholder="رمز عبور" required="required" />
+                            <span asp-validation-for="Password"></span>
+                            </div>
+                        
+                        <a class="btn btn-warning btn-block btn-lg" asp-controller="Account" asp-action="AdminList" >ورود مدیریت </a>
+                      
+                        </div>
+                        <div class="card shadow-2-strong mt-3" style="border-radius: 1rem;">
+                        <div class="card-body p-5 text-center">
+
+                            <h3 class="mb-5">ورودکاربران     </h3>
+
+                            <div class="form-outline mb-4">
+                                <label asp-for="Email">ایمیل : </label>
+                                <input type="text" asp-for="Email" placeholder="ایمیل" required="required" />
+                                <span asp-validation-for="Email"></span>
+                            </div>
+                            <label asp-for="Password" >رمزعبور :</label>
+                            <input type="text" asp-for="Password" placeholder="رمز عبور" required="required" />
+                            <span asp-validation-for="Password"></span>
+                            </div>
+                        
+                        <a class="btn btn-warning btn-block btn-lg" asp-controller="Account" asp-action="memberList" >ورود کاربران </a>
+                      
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<h2> hsks </h2>
