@@ -5,6 +5,7 @@ using _10.Models;
 using _10.Data_Access;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Xml.Linq;
+using System.Reflection;
 
 namespace _10.Controllers
 {
@@ -39,12 +40,19 @@ namespace _10.Controllers
             //throw new DivideByZeroException();
             return View();
         }
-        public IActionResult Delete(int Id)
-
+        public IActionResult Delete(int id)
         {
-            _ProductRippo.Delete(Id);
-            return RedirectToAction("List");
+            var result = _ProductRippo.GetList();
+            foreach (var p in result)
+            {
+                if (p.Id == id)
+                {
+                    _ProductRippo.Delete(p.Id);
+                    return RedirectToAction("List");
+                }
 
+            }
+            return View("Home/Error");
         }
         public IActionResult Action()
         {
@@ -56,13 +64,14 @@ namespace _10.Controllers
             var result = _ProductRippo.GetList();
             foreach (var p in result)
             {
-                if (p.Name == model.Name)
+                if (p.Id == model.Id)
                 {
                     _ProductRippo.Delete(p.Id);
                     return RedirectToAction("List");
                 }
+                
             }
-            return View("Home/Error"); 
+             return View("Home/Error");
         }
         
         [HttpPost]
@@ -91,8 +100,8 @@ namespace _10.Controllers
             return RedirectToAction("List");
         }
         public IActionResult Edit(int id)
-
         {
+
             var entity = _ProductRippo.Get(id);
             return View(entity);
         }
@@ -100,13 +109,31 @@ namespace _10.Controllers
         public IActionResult Edit(int id, string name, int number, decimal price)
 
         {
-            _ProductRippo.Edite(id, name,number, price);
-            return RedirectToAction("List");
+            var result = _ProductRippo.GetList();
+            foreach (var n in result)
+            {
+
+                if(n.Id == id)
+                {
+                _ProductRippo.Edite(id, name, number, price);
+                return RedirectToAction("List");
+                }
+            }
+            return View("Home/Error");
         }
+
         [HttpPost]
         public IActionResult Edite2( string name, int number, decimal price)
         {
+            
             var result = _ProductRippo.GetList();
+            foreach(var product in result)
+            {
+                if(product.Name== name)
+                {
+                    var id =product.Id;
+                }
+            }
             foreach (var p in result)
             {
                 if ((p.Name == name))

@@ -22,7 +22,7 @@ namespace _10
                 
               
             }
-
+           
             app.UseStatusCodePagesWithReExecute("/Home/HandleError/{0}");
             // app.UseTestMiddleware();
 
